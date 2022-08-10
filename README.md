@@ -1,5 +1,6 @@
 # PokeApi
 Instructions to run in local:
+
 -In docker create the volume "mongodb_data" there the database data will be stored.
 -In the Makefile run the make up, this will generate the 3 images and create the 3 containers of the project.
 -In case you want to populate the db with the data of all the pokemon and the evolutions chains you would have to open a console in the web-1 container,
