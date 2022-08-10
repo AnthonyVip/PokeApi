@@ -14,3 +14,24 @@ run command poetry shell to start the virtual environment and once started run t
  if the evolution chain is not registered in the database it will make use of the pokeapi api to save the data in the database and proceed to return the information of that pokemon species.
  
  {local_ip}/api/v1/pokemon/{name}/, this endpoint receives the name of the pokemon and returns the data corresponding to that pokemon.
+ 
+The following technologies were used for the development:
+
+-Python 3.9
+
+-Poetry
+
+-Django
+
+-unittest
+
+-Mongodb
+
+-Gunicorn
+
+-Nginx
+
+-Docker
+
+-Docker-Compose
+
