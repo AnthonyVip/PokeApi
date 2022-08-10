@@ -1,0 +1,46 @@
+version: '3.8'
+
+
+services:
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    restart: "on-failure"
+
+  web:
+    build: .
+    env_file:
+      - .env
+    image: motechpokemon
+    expose:
+      - "80"
+    depends_on:
+      - mongodb
+
+    restart: "on-failure"
+
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/mongodb
+    
+    environment:
+      - MONGODB_USERNAME=mongouser
+      - MONGODB_PASSWORD=mongopass
+      - MONGODB_DATABASE=mo_pokemon
+      - MONGODB_ROOT_PASSWORD=mongopass
+
+    expose:
+      - "27017"
+
+    restart: "on-failure"
+
+volumes:
+  mongodb_data:
+    driver: local
